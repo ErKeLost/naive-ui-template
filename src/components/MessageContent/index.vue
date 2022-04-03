@@ -1,4 +1,3 @@
-/* eslint-disable vue/valid-template-root */
 <template></template>
 <script lang="ts">
 import { useMessage } from 'naive-ui'
