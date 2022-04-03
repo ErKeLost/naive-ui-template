@@ -4,8 +4,15 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    Application: typeof import('./components/Application/Application.vue')['default']
+    DialogContent: typeof import('./components/DialogContent/index.vue')['default']
+    LoadingContent: typeof import('./components/LoadingContent/index.vue')['default']
+    MessageContent: typeof import('./components/MessageContent/index.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
+    NDialogProvider: typeof import('naive-ui')['NDialogProvider']
+    NLoadingBarProvider: typeof import('naive-ui')['NLoadingBarProvider']
+    NMessageProvider: typeof import('naive-ui')['NMessageProvider']
+    NNotificationProvider: typeof import('naive-ui')['NNotificationProvider']
     NSpace: typeof import('naive-ui')['NSpace']
   }
 }
