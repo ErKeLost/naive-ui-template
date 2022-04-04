@@ -11,7 +11,7 @@ import legacy from '@vitejs/plugin-legacy'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-// import Unocss from "unocss/vite";
+import Unocss from 'unocss/vite'
 import Inspect from 'vite-plugin-inspect'
 // import svgLoader from 'vite-svg-loader' // 打包问题
 import OptimizationPersist from 'vite-plugin-optimize-persist'
@@ -122,6 +122,7 @@ export default defineConfig(async (env) => {
           // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
           // Auto import icon components
           // 自动导入图标组件
+          NaiveUiResolver(),
           IconsResolver({
             // 动态转换前缀
             prefix: 'Icon'
@@ -167,7 +168,7 @@ export default defineConfig(async (env) => {
           }),
       // https://github.com/antfu/unocss
       // see unocss.config.ts for config
-      // Unocss(),
+      Unocss(),
       PkgConfig(),
       OptimizationPersist()
     ],

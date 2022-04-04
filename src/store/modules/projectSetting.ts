@@ -2,17 +2,20 @@ import { defineStore } from 'pinia'
 import { store } from '~/store'
 import projectSetting from '~/settings/projectSetting'
 import type {
+  IcrumbsSetting,
   IheaderSetting,
   ImenuSetting,
-  ImultiTabsSetting,
-  IcrumbsSetting
+  ISideSetting,
+  ImultiTabsSetting
 } from '~/types/config'
 
 const {
   navMode,
   navTheme,
   isMobile,
+  sideSetting,
   headerSetting,
+  footerSetting,
   showFooter,
   menuSetting,
   multiTabsSetting,
@@ -21,28 +24,30 @@ const {
   isPageAnimate,
   pageAnimateType
 } = projectSetting
-
 interface ProjectSettingState {
-  navMode: string //导航模式
-  navTheme: string //导航风格
-  headerSetting: IheaderSetting //顶部设置
-  showFooter: boolean //页脚
-  menuSetting: ImenuSetting //多标签
-  multiTabsSetting: ImultiTabsSetting //多标签
-  crumbsSetting: IcrumbsSetting //面包屑
-  permissionMode: string //权限模式
-  isPageAnimate: boolean //是否开启路由动画
-  pageAnimateType: string //路由动画类型
+  navMode: string // 导航模式
+  navTheme: string // 导航风格
+  sideSetting: ISideSetting // 侧边栏设置
+  headerSetting: IheaderSetting // 顶部设置
+  footerSetting: any
+  showFooter: boolean // 页脚
+  menuSetting: ImenuSetting // 多标签
+  multiTabsSetting: ImultiTabsSetting // 多标签
+  crumbsSetting: IcrumbsSetting // 面包屑
+  permissionMode: string // 权限模式
+  isPageAnimate: boolean // 是否开启路由动画
+  pageAnimateType: string // 路由动画类型
   isMobile: boolean // 是否处于移动端模式
 }
-
 export const useProjectSettingStore = defineStore({
   id: 'app-project-setting',
   state: (): ProjectSettingState => ({
-    navMode: navMode,
+    navMode,
     navTheme,
     isMobile,
+    sideSetting,
     headerSetting,
+    footerSetting,
     showFooter,
     menuSetting,
     multiTabsSetting,
@@ -61,8 +66,14 @@ export const useProjectSettingStore = defineStore({
     getIsMobile(): boolean {
       return this.isMobile
     },
+    getSideSetting(): ISideSetting {
+      return this.sideSetting
+    },
     getHeaderSetting(): object {
       return this.headerSetting
+    },
+    getFooterSetting(): object {
+      return this.footerSetting
     },
     getShowFooter(): boolean {
       return this.showFooter

@@ -5,15 +5,24 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Application: typeof import('./components/Application/Application.vue')['default']
+    DefaultSetting: typeof import('./layout/src/components/drawer/defaultSetting.vue')['default']
     DialogContent: typeof import('./components/DialogContent/index.vue')['default']
+    Drawer: typeof import('./layout/src/components/drawer/index.vue')['default']
+    Footer: typeof import('./layout/src/components/Footer/index.vue')['default']
     LoadingContent: typeof import('./components/LoadingContent/index.vue')['default']
     MessageContent: typeof import('./components/MessageContent/index.vue')['default']
-    NButton: typeof import('naive-ui')['NButton']
+    Moon: typeof import('./components/icon/moon.vue')['default']
     NDialogProvider: typeof import('naive-ui')['NDialogProvider']
+    NLayout: typeof import('naive-ui')['NLayout']
+    NLayoutContent: typeof import('naive-ui')['NLayoutContent']
+    NLayoutFooter: typeof import('naive-ui')['NLayoutFooter']
+    NLayoutHeader: typeof import('naive-ui')['NLayoutHeader']
+    NLayoutSider: typeof import('naive-ui')['NLayoutSider']
     NLoadingBarProvider: typeof import('naive-ui')['NLoadingBarProvider']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NNotificationProvider: typeof import('naive-ui')['NNotificationProvider']
-    NSpace: typeof import('naive-ui')['NSpace']
+    NotFound: typeof import('./components/not-found/not-found.vue')['default']
+    Src: typeof import('./layout/src/index.vue')['default']
   }
 }
 
