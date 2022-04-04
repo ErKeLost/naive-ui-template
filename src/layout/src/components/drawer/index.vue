@@ -1,14 +1,20 @@
 <template>
-  <el-button circle size="large" class="drawer-setting" @click="showDefaultSetting = true">
-    <el-icon class="is-loading" :size="27">
-      <CarbonSettings />
-    </el-icon>
-  </el-button>
-  <el-drawer v-model="showDefaultSetting" :with-header="false" :append-to-body="true" size="30%">
+  <n-button
+    type="warning"
+    circle
+    size="large"
+    class="drawer-setting"
+    @click="showDefaultSetting = true"
+  >
+    <n-icon class="is-loading" :size="27">
+      <moon />
+    </n-icon>
+  </n-button>
+  <n-drawer v-model:show="showDefaultSetting" :z-index="2002" width="20%">
     <div class="default-setting-container">
       <defaultSetting />
     </div>
-  </el-drawer>
+  </n-drawer>
 </template>
 <script setup lang="ts">
 const showDefaultSetting = ref(false)

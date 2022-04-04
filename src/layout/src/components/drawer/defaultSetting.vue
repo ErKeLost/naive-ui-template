@@ -1,120 +1,116 @@
 <template>
-  <!-- <el-scrollbar> -->
   <div class="setting">
-    <!-- <span class="setting-title">项目配置</span>
-    <el-divider>
+    <span class="setting-title">项目配置</span>
+    <n-divider>
       <span class="setting-title-sub">主题化</span>
-    </el-divider>
-    <el-switch
-      v-model="show"
-      size="large"
-      :width="50"
-      inline-prompt
-      active-color="#000"
-      inactive-color="#000"
-      border-color="#fff"
-      :active-icon="IcBaselineWbSunny"
-      :inactive-icon="CarbonMoon"
-    />
-    <el-divider>
+    </n-divider>
+    <n-switch v-model:value="show" size="large">
+      <template #checked-icon>
+        <!-- <n-icon :component="IcBaselineWbSunny" /> -->
+      </template>
+      <template #unchecked-icon>
+        <!-- <n-icon :component="CarbonMoon" /> -->
+      </template>
+    </n-switch>
+    <n-divider>
       <NetFix />
-    </el-divider>
-    <el-divider>
+    </n-divider>
+    <!-- <n-divider>
       <span class="setting-title-sub">系统主题</span>
-    </el-divider>
+    </n-divider>
     <span>I cannot choose the best. The best chooses me.</span>
-    <el-divider>
+    <n-divider>
       <span class="setting-title-sub">导航栏模式</span>
-    </el-divider>
+    </n-divider>
     <div class="drawer-setting-item align-items-top">
       <div class="drawer-setting-item-style align-items-top">
-        <el-tooltip effect="dark" content="左侧菜单模式" placement="top-start">
+        <n-tooltip effect="dark" content="左侧菜单模式" placement="top-start">
           <img
             src="../../../../assets/images/nav-theme-dark.svg"
             alt="左侧菜单模式"
             @click="togNavMode('vertical')"
           />
-        </el-tooltip>
+        </n-tooltip>
         <span class="setting-title-sub-er">左侧菜单模式</span>
         <div class="setting-choose">
-          <el-badge v-show="settingStore.navMode === 'vertical'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'vertical'" is-dot />
         </div>
       </div>
       <div class="drawer-setting-item-style align-items-top">
-        <el-tooltip effect="dark" content="内容模式" placement="top-start">
+        <n-tooltip effect="dark" content="内容模式" placement="top-start">
           <div class="mode mode-single" @click="togNavMode('content')" />
-        </el-tooltip>
+        </n-tooltip>
         <span class="setting-title-sub-er">内容模式</span>
         <div class="setting-choose">
-          <el-badge v-show="settingStore.navMode === 'content'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'content'" is-dot />
         </div>
       </div>
       <div class="drawer-setting-item-style align-items-top">
-        <el-tooltip effect="dark" content="底部模式" placement="top-start">
+        <n-tooltip effect="dark" content="底部模式" placement="top-start">
           <div class="mode mode-footer" @click="togNavMode('footer')" />
-        </el-tooltip>
+        </n-tooltip>
         <span class="setting-title-sub-er">底部模式</span>
         <div class="setting-choose">
-          <el-badge v-show="settingStore.navMode === 'footer'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'footer'" is-dot />
         </div>
       </div>
       <div class="drawer-setting-item-style align-items-top">
-        <el-tooltip effect="dark" content="底部模式" placement="top-start">
+        <n-tooltip effect="dark" content="底部模式" placement="top-start">
           <div class="mode mode-footer-fix" @click="togNavMode('footer-fix')" />
-        </el-tooltip>
+        </n-tooltip>
         <span class="setting-title-sub-er">底部混合模式</span>
         <div class="setting-choose">
-          <el-badge v-show="settingStore.navMode === 'footer-fix'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'footer-fix'" is-dot />
         </div>
       </div>
 
       <div class="drawer-setting-item-style align-items-top">
-        <el-tooltip effect="dark" content="顶部菜单模式" placement="top-start">
+        <n-tooltip effect="dark" content="顶部菜单模式" placement="top-start">
           <img
             src="../../../../assets/images/nav-horizontal.svg"
             alt="顶部菜单模式"
             @click="togNavMode('horizontal')"
           />
-        </el-tooltip>
+        </n-tooltip>
         <span class="setting-title-sub-er">顶部菜单模式</span>
         <div class="setting-choose">
-          <el-badge v-show="settingStore.navMode === 'horizontal'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'horizontal'" is-dot />
         </div>
       </div>
 
       <div class="drawer-setting-item-style align-items-top">
-        <el-tooltip effect="dark" content="顶部菜单混合模式" placement="top-start">
+        <n-tooltip effect="dark" content="顶部菜单混合模式" placement="top-start">
           <img
             src="../../../../assets/images/nav-horizontal-mix.svg"
             alt="顶部菜单混合模式"
             @click="togNavMode('horizontal-mix')"
           />
-        </el-tooltip>
+        </n-tooltip>
         <span class="setting-title-sub-er">顶部菜单混合模式</span>
         <div class="setting-choose">
-          <el-badge v-show="settingStore.navMode === 'horizontal-mix'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'horizontal-mix'" is-dot />
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <el-divider>界面功能</el-divider>
+    <n-divider>界面功能</n-divider>
     <div class="drawer-setting-switch">
       <div class="drawer-setting-switch-title">固定顶栏</div>
       <div class="drawer-setting-switch-action">
-        <el-switch v-model="settingStore.headerSetting.fixed" />
+        <n-switch v-model:value="settingStore.headerSetting.fixed" />
       </div>
     </div>
     <div class="drawer-setting-switch">
       <div class="drawer-setting-switch-title">滚动距离大于多少后固定顶栏</div>
       <div class="slider">
-        <el-slider v-model="settingStore.headerSetting.scroll" :min="80" :max="250" />
+        <n-slider v-model:value="settingStore.headerSetting.scroll" :min="0" :max="250" />
       </div>
     </div>
     <div class="drawer-setting-switch">
       <div class="drawer-setting-switch-title">固定侧边栏</div>
       <div class="drawer-setting-switch-action">
-        <el-switch
-          v-model="settingStore.menuSetting.fixed"
+        <n-switch
+          v-model:value="settingStore.menuSetting.fixed"
           :disabled="settingStore.menuSetting.headerFixed"
         />
       </div>
@@ -122,8 +118,8 @@
     <div class="drawer-setting-switch">
       <div class="drawer-setting-switch-title">不占据Header的固定侧边栏</div>
       <div class="drawer-setting-switch-action">
-        <el-switch
-          v-model="settingStore.menuSetting.headerFixed"
+        <n-switch
+          v-model:value="settingStore.menuSetting.headerFixed"
           :disabled="settingStore.menuSetting.fixed"
         />
       </div>
@@ -131,57 +127,56 @@
     <div class="drawer-setting-switch">
       <div class="drawer-setting-switch-title">固定Footer</div>
       <div class="drawer-setting-switch-action">
-        <el-switch v-model="settingStore.footerSetting.fixed" />
+        <n-switch v-model:value="settingStore.footerSetting.fixed" />
       </div>
     </div>
     <div class="drawer-setting-switch">
       <div class="drawer-setting-switch-title">是否展示Aside</div>
       <div class="drawer-setting-switch-action">
-        <el-switch v-model="settingStore.sideSetting.showSide" />
+        <n-switch v-model:value="settingStore.sideSetting.showSide" />
       </div>
     </div>
     <div class="drawer-setting-switch">
       <div class="drawer-setting-switch-title">是否展示Footer</div>
       <div class="drawer-setting-switch-action">
-        <el-switch v-model="settingStore.footerSetting.showFooter" />
+        <n-switch v-model:value="settingStore.footerSetting.showFooter" />
       </div>
     </div>
     <div class="drawer-setting-switch">
       <div class="drawer-setting-switch-title">是否展示Header</div>
       <div class="drawer-setting-switch-action">
-        <el-switch v-model="settingStore.headerSetting.showHeader" />
+        <n-switch v-model:value="settingStore.headerSetting.showHeader" />
       </div>
     </div>
     <div class="drawer-setting-slider">
       <div class="drawer-setting-switch-title">Header高度</div>
       <div class="slider">
-        <el-slider v-model="settingStore.headerSetting.height" :min="60" :max="150" />
+        <n-slider v-model:value="settingStore.headerSetting.height" :min="60" :max="150" />
       </div>
     </div>
     <div class="drawer-setting-slider">
       <div class="drawer-setting-switch-title">Side宽度</div>
       <div class="slider">
-        <el-slider v-model="settingStore.sideSetting.width" :min="180" :max="250" />
+        <n-slider v-model:value="settingStore.sideSetting.width" :min="180" :max="250" />
       </div>
     </div>
     <div class="drawer-setting-slider">
       <div class="drawer-setting-switch-title">Footer高度</div>
       <div class="slider">
-        <el-slider v-model="settingStore.footerSetting.height" :min="60" :max="150" />
+        <n-slider v-model:value="settingStore.footerSetting.height" :min="60" :max="150" />
       </div>
-    </div> -->
+    </div>
   </div>
-  <!-- </el-scrollbar> -->
 </template>
 <script lang="ts" setup>
-// import { useProjectSettingStore } from '~/store/modules/projectSetting'
+import { useProjectSettingStore } from '~/store/modules/projectSetting'
 // import CarbonMoon from '~/components/Icon/CarbonMoon.vue'
 // import IcBaselineWbSunny from '~/components/Icon/IcBaselineWbSunny.vue'
-// const settingStore = useProjectSettingStore()
-// const show = ref(false)
+const settingStore = useProjectSettingStore()
+const show = ref(false)
 // function togNavMode(mode: any) {
-// settingStore.navMode = mode
-// settingStore.menuSetting.mixMenu = false
+//   settingStore.navMode = mode
+//   settingStore.menuSetting.mixMenu = false
 // }
 </script>
 <style lang="scss">

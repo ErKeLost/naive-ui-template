@@ -5,8 +5,10 @@
       <n-layout-header
         v-if="settingStore.headerSetting.showHeader"
         ref="header"
-        :height="`${getHeaderSetting.height}px`"
-        :style="{ marginLeft: settingStore.menuSetting.fixed ? `${getSideSetting.width}px` : '' }"
+        :style="{
+          height: `${getHeaderSetting.height}px`,
+          marginLeft: settingStore.menuSetting.fixed ? `${getSideSetting.width}px` : ''
+        }"
         :class="[
           settingStore.headerSetting.fixed ? ['header-fixed'] : '',
           settingStore.menuSetting.fixed ? ['menu-margin'] : ''
@@ -55,12 +57,26 @@
             }"
           >
             <div style="background: #eab">
-              <i-ep-add-location />
-              <i-ep-aim />
-              <i-ep-picture-rounded color="red" font-size="30px" />
+              <n-space>
+                <n-button dashed> Default </n-button>
+                <n-button type="primary" dashed> Primary </n-button>
+                <n-button type="info" dashed> Info </n-button>
+                <n-button type="success" dashed> Success </n-button>
+                <n-button type="warning" dashed> Warning </n-button>
+                <n-button type="error" dashed> Error </n-button>
+              </n-space>
+              <n-space>
+                <n-button>Default</n-button>
+                <n-button type="tertiary"> Tertiary </n-button>
+                <n-button type="primary"> Primary </n-button>
+                <n-button type="info"> Info </n-button>
+                <n-button type="success"> Success </n-button>
+                <n-button type="warning"> Warning </n-button>
+                <n-button type="error"> Error </n-button>
+              </n-space>
+              im title
               <div style="height: 1500px"></div>
-              <div style="height: 1500px"></div>
-              4153456456465
+              im bottom
             </div>
           </n-layout-content>
           <NLayoutFooter
