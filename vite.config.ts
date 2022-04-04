@@ -47,7 +47,7 @@ export default defineConfig(async (env) => {
       preprocessorOptions: {
         // 全局引入了 scss 的文件
         scss: {
-          charset: false,
+          // charset: false,
           additionalData: `
         @import "~/styles/variables.scss";
       `,
