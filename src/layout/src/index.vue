@@ -125,12 +125,6 @@ watch(
   position: relative;
   z-index: 2001;
 }
-.menu-margin {
-  // margin-left: 250px;
-}
-.page-content {
-  // margin-top: 80px;
-}
 .aside-fixed {
   position: fixed;
   top: 0px;
@@ -198,8 +192,5 @@ watch(
   text-align: center;
   background-color: #f0f2f5;
   padding: 0;
-}
-.el-footer {
-  // height: v-bind(height);
 }
 </style>
