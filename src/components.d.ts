@@ -15,7 +15,6 @@ declare module 'vue' {
     LoadingContent: typeof import('./components/LoadingContent/index.vue')['default']
     MessageContent: typeof import('./components/MessageContent/index.vue')['default']
     Moon: typeof import('./components/icon/moon.vue')['default']
-    NBadge: typeof import('naive-ui')['NBadge']
     NButton: typeof import('naive-ui')['NButton']
     NDialogProvider: typeof import('naive-ui')['NDialogProvider']
     NDivider: typeof import('naive-ui')['NDivider']
@@ -34,7 +33,6 @@ declare module 'vue' {
     NSlider: typeof import('naive-ui')['NSlider']
     NSpace: typeof import('naive-ui')['NSpace']
     NSwitch: typeof import('naive-ui')['NSwitch']
-    NTooltip: typeof import('naive-ui')['NTooltip']
     Src: typeof import('./layout/src/index.vue')['default']
   }
 }
