@@ -2,22 +2,7 @@ import path from 'path'
 // import child_process from 'child_process'
 // import { ConfigEnv, defineConfig, loadEnv } from 'vite'
 import { defineConfig } from 'vite'
-import checker from 'vite-plugin-checker'
-import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
-import VueJsx from '@vitejs/plugin-vue-jsx'
-import Icons from 'unplugin-icons/vite'
-import legacy from '@vitejs/plugin-legacy'
-import IconsResolver from 'unplugin-icons/resolver'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import Unocss from 'unocss/vite'
-import Inspect from 'vite-plugin-inspect'
-// import svgLoader from 'vite-svg-loader' // 打包问题
-import OptimizationPersist from 'vite-plugin-optimize-persist'
-import PkgConfig from 'vite-plugin-package-config'
-import { VueUseComponentsResolver, NaiveUiResolver } from 'unplugin-vue-components/resolvers'
-const pathSrc = path.resolve(__dirname, 'src')
+import vitePlugins from './src/composables/preset/vitePlugin'
 function pathResolve(dir: string) {
   return path.resolve(process.cwd(), '.', dir)
 }
@@ -93,86 +78,7 @@ export default defineConfig(async (env) => {
         }
       }
     },
-    plugins: [
-      Vue({
-        reactivityTransform: true
-      }),
-      // svgLoader(),  // 目前测试 使用该插件 导致打包 svg 会有问题
-      VueJsx(),
-      // https://github.com/hannoeru/vite-plugin-pages
-      Pages(),
-      Inspect(), // 仅适用于开发模式
-      // vite need esm browser ? i dont test this plugin  // 2022 . 3 . 12
-      legacy({
-        targets: ['ie >= 11'],
-        additionalLegacyPolyfills: ['regenerator-runtime/runtime']
-      }),
-      // https://github.com/antfu/unplugin-auto-import
-      AutoImport({
-        // imports: ['vue', '@vueuse/core'],
-        // Generate corresponding .eslintrc-auto-import.json file.
-        // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
-        imports: ['vue', 'vue/macros', 'vue-router', 'pinia', '@vueuse/core'],
-        eslintrc: {
-          enabled: true, // Default `false`
-          filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
-          globalsPropValue: true // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
-        },
-        resolvers: [
-          // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
-          // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
-          // Auto import icon components
-          // 自动导入图标组件
-          NaiveUiResolver(),
-          IconsResolver({
-            // 动态转换前缀
-            prefix: 'Icon'
-          })
-        ],
-        dts: path.resolve(pathSrc, 'auto-imports.d.ts')
-      }),
-
-      // https://github.com/antfu/vite-plugin-components
-      Components({
-        extensions: ['vue', 'tsx'],
-        deep: true,
-        include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.tsx$/],
-        // imports 指定组件所在位置，默认为 src/components
-        dirs: ['src/components/', 'src/layout/', 'src/views'],
-        resolvers: [
-          // Auto register icon components
-          // 自动注册图标组件
-          IconsResolver({
-            enabledCollections: ['a']
-          }),
-          NaiveUiResolver(),
-          VueUseComponentsResolver()
-        ],
-        dts: path.resolve(pathSrc, 'components.d.ts')
-      }),
-      Icons({
-        compiler: 'vue3',
-        autoInstall: true
-      }),
-      env.mode === 'production'
-        ? null
-        : checker({
-            enableBuild: false,
-            typescript: true,
-            // vueTsc: true,
-            eslint: {
-              lintCommand: 'eslint "./src/**/*.{ts,tsx,vue}"',
-              dev: {
-                logLevel: ['error']
-              }
-            }
-          }),
-      // https://github.com/antfu/unocss
-      // see unocss.config.ts for config
-      Unocss(),
-      PkgConfig(),
-      OptimizationPersist()
-    ],
+    plugins: vitePlugins(env),
 
     // https://github.com/vitest-dev/vitest
     test: {

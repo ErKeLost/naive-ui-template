@@ -4,18 +4,30 @@
     <n-divider>
       <span class="setting-title-sub">主题化</span>
     </n-divider>
-    <n-switch v-model:value="show" size="large">
-      <template #checked-icon>
-        <!-- <n-icon :component="IcBaselineWbSunny" /> -->
-      </template>
-      <template #unchecked-icon>
-        <!-- <n-icon :component="CarbonMoon" /> -->
-      </template>
-    </n-switch>
+    <div text-center class="dark-switch">
+      <n-tooltip size="large" placement="bottom">
+        <template #trigger>
+          <n-switch v-model:value="show" class="dark-theme-switch">
+            <template #checked>
+              <n-icon size="14" color="#ffd93b">
+                <IcBaselineWbSunny />
+              </n-icon>
+            </template>
+            <template #unchecked>
+              <n-icon size="14" color="#ffd93b">
+                <CarbonMoon />
+              </n-icon>
+            </template>
+          </n-switch>
+        </template>
+        <!-- <span>{{ designStore.darkTheme ? '深' : '浅' }}色主题</span> -->
+        <span>{{ '浅' }}色主题</span>
+      </n-tooltip>
+    </div>
     <n-divider>
       <NetFix />
     </n-divider>
-    <!-- <n-divider>
+    <n-divider>
       <span class="setting-title-sub">系统主题</span>
     </n-divider>
     <span>I cannot choose the best. The best chooses me.</span>
@@ -24,39 +36,51 @@
     </n-divider>
     <div class="drawer-setting-item align-items-top">
       <div class="drawer-setting-item-style align-items-top">
-        <n-tooltip effect="dark" content="左侧菜单模式" placement="top-start">
-          <img
-            src="../../../../assets/images/nav-theme-dark.svg"
-            alt="左侧菜单模式"
-            @click="togNavMode('vertical')"
-          />
+        <n-tooltip trigger="hover" placement="top-start">
+          <template #trigger>
+            <img
+              src="../../../../assets/images/nav-theme-dark.svg"
+              alt="左侧菜单模式"
+              @click="togNavMode('vertical')"
+            />
+          </template>
+          左侧菜单模式
         </n-tooltip>
         <span class="setting-title-sub-er">左侧菜单模式</span>
         <div class="setting-choose">
-          <n-badge v-show="settingStore.navMode === 'vertical'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'vertical'" dot />
         </div>
       </div>
       <div class="drawer-setting-item-style align-items-top">
-        <n-tooltip effect="dark" content="内容模式" placement="top-start">
-          <div class="mode mode-single" @click="togNavMode('content')" />
+        <n-tooltip placement="top-start">
+          <template #trigger>
+            <div class="mode mode-single" @click="togNavMode('content')" />
+          </template>
+          内容模式
         </n-tooltip>
         <span class="setting-title-sub-er">内容模式</span>
         <div class="setting-choose">
-          <n-badge v-show="settingStore.navMode === 'content'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'content'" dot />
         </div>
       </div>
       <div class="drawer-setting-item-style align-items-top">
-        <n-tooltip effect="dark" content="底部模式" placement="top-start">
-          <div class="mode mode-footer" @click="togNavMode('footer')" />
+        <n-tooltip placement="top-start">
+          <template #trigger>
+            <div class="mode mode-footer" @click="togNavMode('footer')" />
+          </template>
+          底部模式
         </n-tooltip>
         <span class="setting-title-sub-er">底部模式</span>
         <div class="setting-choose">
-          <n-badge v-show="settingStore.navMode === 'footer'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'footer'" dot />
         </div>
       </div>
       <div class="drawer-setting-item-style align-items-top">
-        <n-tooltip effect="dark" content="底部模式" placement="top-start">
-          <div class="mode mode-footer-fix" @click="togNavMode('footer-fix')" />
+        <n-tooltip placement="top-start">
+          <template #trigger>
+            <div class="mode mode-footer-fix" @click="togNavMode('footer-fix')" />
+          </template>
+          底部混合模式
         </n-tooltip>
         <span class="setting-title-sub-er">底部混合模式</span>
         <div class="setting-choose">
@@ -65,33 +89,39 @@
       </div>
 
       <div class="drawer-setting-item-style align-items-top">
-        <n-tooltip effect="dark" content="顶部菜单模式" placement="top-start">
-          <img
-            src="../../../../assets/images/nav-horizontal.svg"
-            alt="顶部菜单模式"
-            @click="togNavMode('horizontal')"
-          />
+        <n-tooltip placement="top-start">
+          <template #trigger>
+            <img
+              src="../../../../assets/images/nav-horizontal.svg"
+              alt="顶部菜单模式"
+              @click="togNavMode('horizontal')"
+            />
+          </template>
+          顶部菜单模式
         </n-tooltip>
         <span class="setting-title-sub-er">顶部菜单模式</span>
         <div class="setting-choose">
-          <n-badge v-show="settingStore.navMode === 'horizontal'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'horizontal'" dot />
         </div>
       </div>
 
       <div class="drawer-setting-item-style align-items-top">
-        <n-tooltip effect="dark" content="顶部菜单混合模式" placement="top-start">
-          <img
-            src="../../../../assets/images/nav-horizontal-mix.svg"
-            alt="顶部菜单混合模式"
-            @click="togNavMode('horizontal-mix')"
-          />
+        <n-tooltip placement="top-start">
+          <template #trigger>
+            <img
+              src="../../../../assets/images/nav-horizontal-mix.svg"
+              alt="顶部菜单混合模式"
+              @click="togNavMode('horizontal-mix')"
+            />
+          </template>
+          顶部菜单混合模式
         </n-tooltip>
         <span class="setting-title-sub-er">顶部菜单混合模式</span>
         <div class="setting-choose">
-          <n-badge v-show="settingStore.navMode === 'horizontal-mix'" is-dot />
+          <n-badge v-show="settingStore.navMode === 'horizontal-mix'" dot />
         </div>
       </div>
-    </div> -->
+    </div>
 
     <n-divider>界面功能</n-divider>
     <div class="drawer-setting-switch">
@@ -178,16 +208,16 @@
 </template>
 <script lang="ts" setup>
 import { useProjectSettingStore } from '~/store/modules/projectSetting'
-// import CarbonMoon from '~/components/Icon/CarbonMoon.vue'
-// import IcBaselineWbSunny from '~/components/Icon/IcBaselineWbSunny.vue'
+import CarbonMoon from '~/components/icon/CarbonMoon.vue'
+import IcBaselineWbSunny from '~/components/icon/IcBaselineWbSunny.vue'
 const settingStore = useProjectSettingStore()
 const show = ref(false)
-// function togNavMode(mode: any) {
-//   settingStore.navMode = mode
-//   settingStore.menuSetting.mixMenu = false
-// }
+function togNavMode(mode: any) {
+  settingStore.navMode = mode
+  settingStore.menuSetting.mixMenu = false
+}
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .slider {
   width: 60%;
 }
@@ -249,12 +279,8 @@ const show = ref(false)
   overflow: hidden;
   cursor: pointer;
   background-color: #f3f3f3;
-  // margin-bottom: 10px;
-  // box-shadow: 0 0 15px 1px #aaa;
   transition: 0.3s;
-  &:hover {
-    // box-shadow: 0 0 15px 1px #666;
-  }
+
   &::before,
   &::after {
     pointer-events: none;
@@ -379,7 +405,6 @@ const show = ref(false)
       left: 0;
       width: 15px;
       height: 100%;
-      // background-color: #fff;
     }
   }
   i {
@@ -393,9 +418,19 @@ const show = ref(false)
     color: #409eff;
   }
 }
-.mode-hover {
-  &:hover {
-    // box-shadow: 0 0 15px 1px #666;
+// :deep(.n-switch.n-switch--active .n-switch__rail) {
+//   background-color: #181818;
+// }
+// :deep(.n-switch .n-switch__rail) {
+//   background-color: #181818;
+// }
+.justify-center {
+  justify-content: center;
+}
+
+.dark-switch .n-switch {
+  :deep(.n-switch__rail) {
+    background-color: #000e1c !important;
   }
 }
 </style>

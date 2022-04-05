@@ -54,7 +54,7 @@
     "unplugin-auto-import": "^0.6.6",
     "unplugin-icons": "^0.14.1",
     "unplugin-vue-components": "^0.18.5",
-    "vite": "2.8.6",
+    "vite": "2.9.1",
     "vite-plugin-checker": "^0.4.4",
     "vite-plugin-inspect": "^0.4.3",
     "vite-plugin-optimize-persist": "^0.1.2",
