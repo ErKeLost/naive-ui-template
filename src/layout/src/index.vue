@@ -57,34 +57,11 @@
             }"
           >
             <div text-center>
-              <div i-carbon-campsite text-4xl inline-block />
-              <p>
-                <a rel="noreferrer" href="https://github.com/antfu/vitesse-lite" target="_blank">
-                  Vitesse Lite
-                </a>
-              </p>
+              <div i-carbon-campsite text-6xl inline-block />
               <p>
                 <em text-sm op75>Opinionated Vite Starter Template</em>
               </p>
-
               <div py-4 />
-
-              <input
-                id="input"
-                placeholder="What's your name?"
-                type="text"
-                autocomplete="false"
-                p="x-4 y-2"
-                w="250px"
-                text="center"
-                bg="transparent"
-                border="~ rounded gray-200 dark:gray-700"
-                outline="none active:none"
-              />
-
-              <div>
-                <button class="m-3 text-sm btn">Go</button>
-              </div>
             </div>
             <div style="background: #eab">
               <n-space>

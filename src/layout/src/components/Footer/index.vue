@@ -5,6 +5,6 @@ console.log(a)
 
 <template>
   <nav text-xl mt-6 inline-flex gap-2>
-    <button class="icon-btn !outline-none"></button>
+    <n-button class="icon-btn !outline-none"><moon /></n-button>
   </nav>
 </template>
