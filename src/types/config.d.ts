@@ -22,6 +22,7 @@ export interface IbodySetting {
 }
 
 export interface IheaderSetting {
+  isScrollFixed: boolean
   scroll: number
   showHeader: boolean
   height: number

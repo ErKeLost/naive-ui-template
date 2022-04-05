@@ -101,9 +101,9 @@
       </div>
     </div>
     <div class="drawer-setting-switch">
-      <div class="drawer-setting-switch-title">滚动距离大于多少后固定顶栏</div>
-      <div class="slider">
-        <n-slider v-model:value="settingStore.headerSetting.scroll" :min="0" :max="250" />
+      <div class="drawer-setting-switch-title">固定Footer</div>
+      <div class="drawer-setting-switch-action">
+        <n-switch v-model:value="settingStore.footerSetting.fixed" />
       </div>
     </div>
     <div class="drawer-setting-switch">
@@ -116,18 +116,18 @@
       </div>
     </div>
     <div class="drawer-setting-switch">
+      <div class="drawer-setting-switch-title">是否滚动固定顶栏</div>
+      <div class="drawer-setting-switch-action">
+        <n-switch v-model:value="settingStore.headerSetting.isScrollFixed" />
+      </div>
+    </div>
+    <div class="drawer-setting-switch">
       <div class="drawer-setting-switch-title">不占据Header的固定侧边栏</div>
       <div class="drawer-setting-switch-action">
         <n-switch
           v-model:value="settingStore.menuSetting.headerFixed"
           :disabled="settingStore.menuSetting.fixed"
         />
-      </div>
-    </div>
-    <div class="drawer-setting-switch">
-      <div class="drawer-setting-switch-title">固定Footer</div>
-      <div class="drawer-setting-switch-action">
-        <n-switch v-model:value="settingStore.footerSetting.fixed" />
       </div>
     </div>
     <div class="drawer-setting-switch">
@@ -148,6 +148,7 @@
         <n-switch v-model:value="settingStore.headerSetting.showHeader" />
       </div>
     </div>
+
     <div class="drawer-setting-slider">
       <div class="drawer-setting-switch-title">Header高度</div>
       <div class="slider">
@@ -164,6 +165,13 @@
       <div class="drawer-setting-switch-title">Footer高度</div>
       <div class="slider">
         <n-slider v-model:value="settingStore.footerSetting.height" :min="60" :max="150" />
+      </div>
+    </div>
+
+    <div class="drawer-setting-switch">
+      <div class="drawer-setting-switch-title">滚动距离大于多少后固定顶栏</div>
+      <div class="slider">
+        <n-slider v-model:value="settingStore.headerSetting.scroll" :min="0" :max="250" />
       </div>
     </div>
   </div>
@@ -211,6 +219,9 @@ const show = ref(false)
   justify-content: space-between;
   align-items: center;
   margin: 8px;
+  &-title {
+    width: 70%;
+  }
 }
 .drawer-setting-slider {
   font-size: 13px;

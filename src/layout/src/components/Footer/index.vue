@@ -1,6 +1,5 @@
-<script setup lang="ts">
-const a = 1
-console.log(a)
+<script lang="ts">
+console.log('Time Begin:', new Date().getFullYear())
 </script>
 
 <template>

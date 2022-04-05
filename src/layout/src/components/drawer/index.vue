@@ -10,7 +10,7 @@
       <moon />
     </n-icon>
   </n-button>
-  <n-drawer v-model:show="showDefaultSetting" :z-index="2002" width="20%">
+  <n-drawer v-model:show="showDefaultSetting" :z-index="2005" width="20%">
     <div class="default-setting-container">
       <defaultSetting />
     </div>

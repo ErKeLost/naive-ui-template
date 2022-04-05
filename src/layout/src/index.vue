@@ -10,8 +10,8 @@
           marginLeft: settingStore.menuSetting.fixed ? `${getSideSetting.width}px` : ''
         }"
         :class="[
-          settingStore.headerSetting.fixed ? ['header-fixed'] : '',
-          settingStore.menuSetting.fixed ? ['menu-margin'] : ''
+          settingStore.headerSetting.fixed ? ['header-fixed'] : ''
+          // settingStore.menuSetting.fixed ? ['menu-margin'] : ''
         ]"
       >
         <div style="color: red">Headesr</div>
@@ -35,11 +35,19 @@
           :style="[
             settingStore.menuSetting.headerFixed ? { top: `${getHeaderSetting.height}px` } : ''
           ]"
-          :width="`${getSideSetting.width}px`"
+          :width="`${getSideSetting.width}`"
         >
           <div style="width: 100%; height: 500px; background-color: #bfa" />
         </n-layout-sider>
-        <n-layout class="[settingStore.sideSetting.showSide ? 'full-container' : '']">
+        <n-layout
+          :style="{
+            marginLeft:
+              settingStore.menuSetting.fixed && settingStore.sideSetting.showSide
+                ? `${getSideSetting.width}px`
+                : ''
+          }"
+          class="[settingStore.sideSetting.showSide ? 'full-container' : '']"
+        >
           <n-layout-content
             :class="[
               settingStore.menuSetting.fixed ? ['menu-margin'] : '',
@@ -126,9 +134,10 @@ watch(
 )
 const header = ref(null)
 watch(
-  () => getHeaderSetting.value.fixed,
+  [() => getHeaderSetting.value.fixed, () => getHeaderSetting.value.isScrollFixed],
   (newVal) => {
-    if (!newVal) {
+    console.log(newVal)
+    if (!newVal[0] && newVal[1]) {
       window.addEventListener('scroll', () => {
         if (document.documentElement.scrollTop >= getHeaderSetting.value.scroll) {
           settingStore.headerSetting.fixed = true
@@ -165,7 +174,7 @@ watch(
   left: 0;
   width: 100%;
   background: #fba;
-  z-index: 2001;
+  z-index: 2003;
 }
 .page-footer {
   position: fixed;
@@ -187,33 +196,7 @@ watch(
   height: 100%;
   position: relative;
 }
-.el-header,
-.el-footer {
-  display: flex;
-  color: #333;
-  text-align: center;
-  align-items: center;
-}
-.el-aside {
-  overflow-x: hidden;
-  overflow-y: auto;
-  line-height: 200px;
-  text-align: left;
-  cursor: pointer;
-  background-color: #001529;
-  transition: width 0.3s linear;
-  scrollbar-width: none; /* firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.el-main {
-  color: #333;
-  text-align: center;
-  background-color: #f0f2f5;
-  padding: 0;
+.main-content {
+  transition: display 0.3s ease-in-out;
 }
 </style>
