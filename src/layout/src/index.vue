@@ -71,7 +71,6 @@
 
               <input
                 id="input"
-                v-model="name"
                 placeholder="What's your name?"
                 type="text"
                 autocomplete="false"
@@ -81,11 +80,10 @@
                 bg="transparent"
                 border="~ rounded gray-200 dark:gray-700"
                 outline="none active:none"
-                @keydown.enter="go"
               />
 
               <div>
-                <button class="m-3 text-sm btn" :disabled="!name" @click="go">Go</button>
+                <button class="m-3 text-sm btn">Go</button>
               </div>
             </div>
             <div style="background: #eab">
