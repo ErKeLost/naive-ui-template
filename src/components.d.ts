@@ -10,7 +10,6 @@ declare module 'vue' {
     DefaultSetting: typeof import('./layout/src/components/drawer/defaultSetting.vue')['default']
     DialogContent: typeof import('./components/DialogContent/index.vue')['default']
     Drawer: typeof import('./layout/src/components/drawer/index.vue')['default']
-    Footer: typeof import('./layout/src/components/Footer/index.vue')['default']
     IcBaselineWbSunny: typeof import('./components/icon/IcBaselineWbSunny.vue')['default']
     LoadingContent: typeof import('./components/LoadingContent/index.vue')['default']
     MessageContent: typeof import('./components/MessageContent/index.vue')['default']
@@ -35,6 +34,7 @@ declare module 'vue' {
     NSpace: typeof import('naive-ui')['NSpace']
     NSwitch: typeof import('naive-ui')['NSwitch']
     NTooltip: typeof import('naive-ui')['NTooltip']
+    Setting: typeof import('./components/icon/setting.vue')['default']
     Src: typeof import('./layout/src/index.vue')['default']
   }
 }

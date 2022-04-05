@@ -1,13 +1,13 @@
 <template>
   <n-button
-    type="warning"
+    type="primary"
     circle
     size="large"
     class="drawer-setting"
     @click="showDefaultSetting = true"
   >
-    <n-icon class="is-loading" :size="27">
-      <moon />
+    <n-icon :size="27">
+      <setting />
     </n-icon>
   </n-button>
   <n-drawer v-model:show="showDefaultSetting" :z-index="2005" width="20%">
@@ -27,9 +27,7 @@ const showDefaultSetting = ref(false)
   position: fixed;
   right: 0.5%;
   top: 39%;
-  color: #5db5b6;
   font-size: 15px;
-  border-color: #5db5b6;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   z-index: 2001;
 }

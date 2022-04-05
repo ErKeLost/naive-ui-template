@@ -114,7 +114,6 @@
                   : ''
             }"
           >
-            <Footer />
           </NLayoutFooter>
         </n-layout>
       </n-layout>
